@@ -13,7 +13,7 @@ public class Solution {
 		    generateParenthesis(left + 1, right, n, str + "(", list);
 		}
 		if(left>right){
-		    generateParenthesis(left, right + 1, n, str + ")", list);
+		    generateParenthesis(left, right + 1, n, str + ")", list);//left + 1 is wrong. It is jumped out from under level.
 		}
 	}
 }

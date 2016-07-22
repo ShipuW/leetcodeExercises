@@ -8,27 +8,33 @@
  */
 public class Solution {
     public ListNode swapPairs(ListNode head) {
-			if (head == null)
-				return null;
-			if (head.next == null)
-				return head;
-			ListNode cur = head;
-			//head change with next is a special case, so we deal with it first
-			ListNode temp = cur.next;
-			cur.next = temp.next;
-			temp.next = cur;
-			head = temp;
-			// handle other cases
-			while (cur.next != null && cur.next.next != null) {
-				swapNode(cur, cur.next, cur.next.next);
-				cur = cur.next.next;
-			}
+        if (head == null || head.next == null)
 			return head;
-		}
-
-		public void swapNode(ListNode cur, ListNode next1, ListNode next2) {
-			cur.next = next2;
-			next1.next = next2.next;
-			next2.next = next1;
-		}
+        ListNode p = head;
+        //head change with next is a special case, so we deal with it first
+		ListNode t = p.next;
+		p.next = t.next;
+		t.next = p;
+		head = t;
+        while (p.next != null && p.next.next != null){
+            // if(p.next.next != null){
+            //     ListNode temp = p.next.next;
+            //     p.next.next = p;
+            //     p.next = temp;
+            //     p = p.next;
+            // }else{
+            //     p.next.next = p; 
+            //     p.next = null;
+            // }
+            swapNode(p, p.next, p.next.next);
+			p = p.next.next;
+        }
+        
+        return head;
+    }
+    public void swapNode(ListNode cur, ListNode next1, ListNode next2) {
+		cur.next = next2;
+		next1.next = next2.next;
+		next2.next = next1;
+	}
 }

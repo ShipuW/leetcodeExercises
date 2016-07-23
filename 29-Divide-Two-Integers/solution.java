@@ -40,7 +40,7 @@ public class Solution {
         }
         */
         
-        ret = (((dividend ^ divisor) >> 31) & 1) == 1 ? -ret: ret;//deal with out of range case
+        ret = (((dividend ^ divisor) >> 31) & 1) == 1 ? -ret: ret;//deal with out of range case 32位为符号位
         if (ret > Integer.MAX_VALUE || ret < Integer.MIN_VALUE){
             return Integer.MAX_VALUE;
         }

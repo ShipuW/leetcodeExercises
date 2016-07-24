@@ -1,6 +1,7 @@
 public class Solution {
+//http://blog.csdn.net/tuantuanls/article/details/8717262
     public List<List<Integer>> permute(int[] num) {
-		List<List<Integer>> result = new ArrayList<>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		permute(num, 0, result);
 		return result;
 	}
@@ -30,5 +31,6 @@ public class Solution {
 		a[i] = a[j];
 		a[j] = temp;
 	}
+
 
 }

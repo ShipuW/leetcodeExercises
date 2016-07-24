@@ -1,34 +1,27 @@
 public class Solution {
+
     public List<List<Integer>> permute(int[] num) {
-		List<List<Integer>> result = new ArrayList<>();
-		permute(num, 0, result);
-		return result;
+		List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        if (num.length ==0) return ans;
+        List<Integer> l0 = new ArrayList<Integer>();
+        l0.add(num[0]);
+        ans.add(l0);
+        
+        for(int i = 1; i < num.length; i++){
+            List<List<Integer>> new_ans = new ArrayList<List<Integer>>();
+            for(int j = 0; j <= i; j++){
+                for(List<Integer> a : ans){
+                    List<Integer> t = new ArrayList<Integer>(a);//声明新的待加list
+                    t.add(j,num[i]);
+                    new_ans.add(t);
+                }   
+            }
+            ans = new_ans;
+        }
+        return ans;
+        
+
 	}
 
-	public void permute(int[] num, int start, List<List<Integer>> result) {
-		if (start >= num.length) {
-			ArrayList<Integer> item = convertArrayToList(num);
-			result.add(item);
-			return;
-		}
-		for (int j = start; j < num.length; j++) {
-			swap(num, start, j);
-			permute(num, start + 1, result);
-			swap(num, start, j);
-		}
-	}
-
-	private ArrayList<Integer> convertArrayToList(int[] num) {
-		ArrayList<Integer> item = new ArrayList<Integer>();
-		for (int h = 0; h < num.length; h++)
-			item.add(num[h]);
-		return item;
-	}
-
-	private void swap(int[] a, int i, int j) {
-		int temp = a[i];
-		a[i] = a[j];
-		a[j] = temp;
-	}
 
 }

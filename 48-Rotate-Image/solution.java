@@ -1,7 +1,7 @@
 public class Solution {
     public void rotate(int[][] matrix) {
         int n = matrix.length;
-        for(int i = 0; i < n/2; i++){//!!boundary
+        for(int i = 0; i < n/2; i++){//!!boundary只转上部分，左右下不用动了
             for(int j = 0; j < Math.ceil(((double) n) / 2.); j++){//boundary
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[n-1-j][i];

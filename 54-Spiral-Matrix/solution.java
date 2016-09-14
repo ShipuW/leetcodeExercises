@@ -8,7 +8,7 @@ public class Solution {
         int upBound = 0;
         int rightBound = matrix[0].length - 1;
         int downBound = matrix.length - 1;
-        while((leftBound <= rightBound) && (upBound<=downBound)){
+        while((leftBound <= rightBound) && (upBound<=downBound)){//有方向不用考虑一边特别长的情况
             if(dir == 0){//rightward
                 for(int j = leftBound; j <= rightBound; j++){
                     res.add(matrix[upBound][j]);

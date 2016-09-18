@@ -14,7 +14,7 @@ public class Solution {
         Hashtable<Integer, Boolean> table = new Hashtable<Integer, Boolean>();
         ListNode p = head;
         table.put(p.val, true);
-        while(p.next != null && p != null){
+        while(p.next != null ){
             if(table.containsKey(p.next.val)){
                 p.next = p.next.next;//not move p ****
             }else{

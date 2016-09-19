@@ -9,14 +9,20 @@
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         if(head == null) return head;
-        ListNode i = head;
-        ListNode j = head;
-        while(j.next!=null){
-            if(j.val != j.next.val){
-                i = j;
+        ListNode helper = new ListNode(0);
+		helper.next = head;
+		ListNode pre = helper;
+		ListNode cur = head;
+        while(cur != null){
+            while(cur.next != null && pre.next.val == cur.next.val)
+                cur = cur.next;
+            if(pre.next == cur){
+                pre = pre.next;
+            }else{
+                pre.next = cur.next;
             }
+            cur = cur.next;
         }
-        i = j;
-        return head;
+        return helper.next;
     }
 }

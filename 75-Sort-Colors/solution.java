@@ -7,7 +7,7 @@ public class Solution {
 		while (i <= bluept) {
 			// if color is RED, move to the front
 			if (nums[i] == 0) {
-				swap(nums, redpt, i);//always swap with the first one
+				swap(nums, redpt, i);//always swap with the first one*****
 				redpt++;
 				i++;
 				continue;

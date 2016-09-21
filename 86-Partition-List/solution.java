@@ -16,14 +16,15 @@ public class Solution {
         ListNode temp = head;
         while(temp!=null){
             if(temp.val < x){
-                res1.next=temp;
+                res1.next=new ListNode(temp.val);
                 res1=res1.next;
-                temp=temp.next;
+                
             }else{
-                res2.next=temp;
+                res2.next=new ListNode(temp.val);
                 res2=res2.next;
-                temp=temp.next;
+                
             }
+            temp=temp.next;
         }
         res1.next = r2.next;
         return r1.next;
